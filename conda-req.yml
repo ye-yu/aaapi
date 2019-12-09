@@ -1,0 +1,17 @@
+name: aaapi
+channels:
+  - anaconda # for python, numpy, pandas, tensorflow, scipy
+  - conda-forge # for librosa, scikit-learn
+  - roebel # for mido
+dependencies:
+  - python=3.6
+  - pandas
+  - numpy
+  - tensorflow
+  - scikit-learn=0.22
+  - scipy
+  - librosa
+  - mido
+  - pip
+  - pip:
+    - crepe
