@@ -7,12 +7,12 @@ import pandas as pd
 
 
 def analyse_scale(column, all_scores=False, only_use_top=7):
-    value_counts = column.value_counts().reindex(get_notes(), fill_value=0).sort_values(ascending=False)
+    value_counts = column.value_counts().reindex(get_note_classes(), fill_value=0).sort_values(ascending=False)
     # get top 7 notes
     if only_use_top:
-        value_counts = value_counts[:only_use_top].reindex(get_notes(), fill_value=0).sort_values(ascending=False)
+        value_counts = value_counts[:only_use_top].reindex(get_note_classes(), fill_value=0).sort_values(ascending=False)
     scales = get_scales()
-    scales_scores = {v: value_counts[scales[i]].sum() for i, v in enumerate(get_notes())}
+    scales_scores = {v: value_counts[scales[i]].sum() for i, v in enumerate(get_note_classes())}
     if all_scores:
         return scales_scores
     scales_scores = pd.Series(scales_scores)
@@ -20,11 +20,8 @@ def analyse_scale(column, all_scores=False, only_use_top=7):
     return scales_scores.idxmax(), scales_scores.max()
 
 
-def get_notes():
+def get_note_classes():
     return np.array([
-        'A',
-        'A#',
-        'B',
         'C',
         'C#',
         'D',
@@ -33,23 +30,29 @@ def get_notes():
         'F',
         'F#',
         'G',
-        'G#'
+        'G#',
+        'A',
+        'A#',
+        'B'
     ])
 
 
 def get_scales():  # major scales only
-    notes = get_notes()
+    notes = get_note_classes()
     major_scale_indexers = np.array([
-        0,
-        2, 3,
-        5,
-        7, 8,
-        10
+        0, 2, 4,
+        5, 7, 9, 11
     ])
     scales = np.array([
         notes[
             np.sort((major_scale_indexers + i) % 12)
         ] for i in range(notes.shape[0])
     ])
-    scales = np.concatenate((scales[-3:], scales[:-3]))
     return scales
+
+
+def get_scale(scale):
+    scales = get_scales()
+    note_classes = get_note_classes()
+    idx = np.where(note_classes == scale)[0]
+    return scales[idx]
