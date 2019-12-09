@@ -19,7 +19,7 @@ test_requirements = [ ]
 setup(
     author="Ye Yu",
     author_email='rafolwen98@gmail.com',
-    python_requires='>=3.5',
+    python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
