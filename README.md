@@ -4,20 +4,23 @@ Collection of audio and music processing API with massive amount of dependencies
 ## Modules
 
 - AudioUtils
-  loading wav files
-  splitting audio based on volumn peaks
-  extracting audio features of MFCC and spectral entropy
-  f0 estimation using CREPE
+
+  - loading wav files
+  - splitting audio based on volumn peaks
+  - extracting audio features of MFCC and spectral entropy
+  - f0 estimation using CREPE
   
 - MidiUtils
-  converting frequencies to musical notes
-  converting frequencies to musical label
-  converting pandas pd into midi files
-  grouping consecutive notes into one note
-  grouping multiple notes into weighted-averaged note
+
+  - converting frequencies to musical notes
+  - converting frequencies to musical label
+  - converting pandas pd into midi files
+  - grouping consecutive notes into one note
+  - grouping multiple notes into weighted-averaged note
   
 - MusicUtils
-  identifying the scale of the musical notes
+
+  - identifying the scale of the musical notes
 
 
 ## Dependencies
