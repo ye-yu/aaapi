@@ -1,3 +1,7 @@
+"""
+A module to perform music-related operations
+"""
+
 import numpy as np
 import pandas as pd
 

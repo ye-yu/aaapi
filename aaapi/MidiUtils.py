@@ -1,3 +1,7 @@
+"""
+A module to perform midi operations
+"""
+
 import numpy as np
 import pandas as pd
 import mido

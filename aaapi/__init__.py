@@ -1,4 +1,7 @@
-"""Top-level package for aaapi."""
+"""
+This package is originally a project-specific package for easy installation
+in Google Colab.
+"""
 
 __author__ = """Ye Yu"""
 __email__ = 'rafolwen98@gmail.com'

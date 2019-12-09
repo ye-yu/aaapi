@@ -1,3 +1,7 @@
+"""
+A module to process audio files with signal-related operations
+"""
+
 import numpy as np
 import librosa
 import crepe
