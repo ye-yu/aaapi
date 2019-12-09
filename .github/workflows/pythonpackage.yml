@@ -1,12 +1,6 @@
 name: Python package unit tests
 
-on: 
-  push:
-    branches: 
-      - dev
-  pull_request:
-    branches: 
-      - master
+on: [push, pull_request]
 
 jobs:
   build:
