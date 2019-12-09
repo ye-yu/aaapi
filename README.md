@@ -33,3 +33,15 @@ All dependencies can be install either via `conda` or `pip` unless specified oth
 - mido
 - tensorflow
 - crepe (install from pip only)
+
+You can also automatically install dependencies using `pip`:
+
+```bash
+$ pip -r requirements.txt
+```
+
+or using `conda`:
+
+```bash
+$ conda env create -f conda-req.yml
+```
