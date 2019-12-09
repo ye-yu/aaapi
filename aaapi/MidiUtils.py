@@ -7,38 +7,6 @@ import pandas as pd
 import mido
 
 
-def note_class(freq):
-    a4 = 440
-    c0 = a4 * np.power(2, -4.75)
-    h = np.round(12 * np.log2(freq / c0)).astype(np.int8)
-    n = h % 12
-    return n
-
-
-def octave(freq):
-    a4 = 440
-    c0 = a4 * np.power(2, -4.75)
-    h = np.round(12 * np.log2(freq / c0)).astype(np.int8)
-    oct_ = h // 12 - 1
-    return oct_
-
-
-def note(freq, midi=False):
-    a4 = 440
-    c0 = a4 * np.power(2, -4.75)
-    return np.round(12 * np.log2(freq / c0)).astype(np.int8)
-
-
-def label(note_or_freq, octave_n=None):
-    name = np.array(["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"])
-    if octave_n is None:
-        notes = name[note_class(note_or_freq)]
-        octave_n = octave(note_or_freq).astype(str)
-    else:
-        notes = name[note_or_freq]
-    return np.core.defchararray.add(notes.astype(str), octave_n.astype(str))
-
-
 def csv_to_midi(df, dest, note_column='note', duration_column='duration', rest_notation=-1):
     song = SingleTrackMidi(dest)
     for i, v in df.iterrows():
