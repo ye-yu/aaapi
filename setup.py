@@ -3,6 +3,7 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import os, pkg_resources
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -10,7 +11,12 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = [
+    str(requirement)
+    for requirement in pkg_resources.parse_requirements(
+        open(os.path.join(os.path.dirname(__file__), "requirements.txt"))
+    )
+]
 
 setup_requirements = [ ]
 
