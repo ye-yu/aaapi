@@ -73,7 +73,7 @@ class TestAaapi(unittest.TestCase):
         note = 60
         label = aaapi.MusicUtils.midi_note_to_label(note)
         expected_label = 'C4'
-        self.assertEquals(label, expected_label)
+        self.assertEqual(label, expected_label)
 
     def test_C4label_to_midi(self):
         label = 'C4'
