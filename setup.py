@@ -25,7 +25,7 @@ test_requirements = [ ]
 setup(
     author="Ye Yu",
     author_email='rafolwen98@gmail.com',
-    python_requires='>=3.6',
+    python_requires='>=3.6,<3.8',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',
@@ -33,7 +33,6 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
     ],
     description="Another Audio API - Collection of audio and music processing API with massive amount of dependencies",
     install_requires=requirements,
