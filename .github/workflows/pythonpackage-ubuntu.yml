@@ -12,7 +12,7 @@ jobs:
     strategy:
       max-parallel: 2
       matrix:
-        python-version: [3.6, 3.7]
+        python-version: ['py36', 'py37']
 
     steps:
     - uses: actions/checkout@v1
@@ -20,6 +20,9 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
+    - name: Installing libsndfile-dev1
+    - run: |
+        sudo apt-get install libsndfile1-dev
     - name: Install dev dependencies including flake8 and tox
       run: |
         pip install -r requirements_dev.txt
@@ -31,4 +34,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with tox
       run: |
-        tox
+        tox -e ${{ matrix.python-version }}
